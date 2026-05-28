@@ -1,0 +1,5 @@
+{
+  "$comment": "Manual building overrides — applied on top of the procedural city. Each entry is a partial BuildingDef merged into a procedurally-generated building at the same `pos` (within 0.5m), OR appended as a brand-new building if no match. Reserved for hand-tuned hero buildings, OSM/Overture imports, and design experiments. Empty by default — procedural city renders unchanged.",
+  "$schema-version": "1",
+  "buildings": []
+}

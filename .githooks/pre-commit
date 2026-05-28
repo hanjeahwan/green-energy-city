@@ -1,0 +1,17 @@
+#!/bin/sh
+# Layout-audit pre-commit gate.
+#
+# Runs `npm run verify` which executes src/scene/layout.ts::verifyLayout()
+# and exits 1 if any road / overlap / reserved violations exist.
+#
+# Bypass (only if absolutely needed):  git commit --no-verify
+
+echo "[pre-commit] running layout audit..."
+npm run verify --silent
+if [ $? -ne 0 ]; then
+  echo ""
+  echo "[pre-commit] BLOCKED — layout has violations. Fix them or use --no-verify."
+  exit 1
+fi
+echo "[pre-commit] layout OK."
+exit 0
